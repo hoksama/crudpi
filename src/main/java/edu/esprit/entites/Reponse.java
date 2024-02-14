@@ -1,6 +1,7 @@
 package edu.esprit.entites;
 
 import java.time.LocalDate;
+import java.util.Objects;
 
 public class Reponse {
     private int id_reponse;
@@ -53,5 +54,18 @@ public class Reponse {
                 ", description='" + description + '\'' +
                 ", date=" + date +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Reponse reponse = (Reponse) o;
+        return id_reponse == reponse.id_reponse;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id_reponse);
     }
 }

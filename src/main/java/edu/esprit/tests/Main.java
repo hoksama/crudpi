@@ -2,6 +2,7 @@ package edu.esprit.tests;
 
 import edu.esprit.entites.*;
 import edu.esprit.services.ServiceAchat;
+import edu.esprit.services.ServiceReclamation;
 import edu.esprit.services.ServiceReponse;
 import edu.esprit.utils.DataSource;
 
@@ -15,6 +16,7 @@ public class Main {
     public static void main(String[] args) {
         ServiceAchat serviceAchat = new ServiceAchat();
         ServiceReponse serviceReponse = new ServiceReponse();
+        ServiceReclamation serviceReclamation = new ServiceReclamation();
         System.out.println(DataSource.getInstance());
         Formation formation = new Formation(3);
         Outil outil = new Outil(8);
@@ -31,8 +33,14 @@ public class Main {
         //serviceReponse.ajouter(r1);
        // serviceReponse.modifier(2,r1);
         //serviceReponse.supprimer(2);
-        System.out.println(serviceReponse.getOneById(1));
-        //System.out.println(serviceReponse.getAll());
+        //System.out.println(serviceReponse.getOneById(1));
+        //System.out.println(serviceAchat.getAll());
+
+        Reclamation rec = new Reclamation(6969,0,0,"wiiiw wiiiw",3);
+        serviceReclamation.modifier(3,rec);
+        System.out.println(serviceReclamation.getAll());
+        //serviceReclamation.supprimer(1);
+
 
     }
 }
