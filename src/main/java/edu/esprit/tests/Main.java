@@ -17,16 +17,15 @@ public class Main {
     public static void main(String[] args) {
         ServiceAchat serviceAchat = new ServiceAchat();
         System.out.println(DataSource.getInstance());
-        Formation formation = new Formation(4);
-        Outil outil = new Outil(3);
-        User user = new User(1);
-        LocalDate localDate = LocalDate.of(2024, 1, 13);
-        Date sqlDate = Date.valueOf(localDate);
-        System.out.println("SQL Date: " + sqlDate);
-        String code_promo="test23";
-        Achat achat1 = new Achat(user,formation,outil,code_promo,5000,sqlDate);
-        serviceAchat.ajouter(achat1);
+        Formation formation = new Formation(3);
+        Outil outil = new Outil(8);
+        User user = new User(5);
 
+        String code_promo="test23566";
+       Achat achat1 = new Achat(70,69,69,code_promo,420);
+        //serviceAchat.ajouter(achat1);
+        //serviceAchat.supprimer(4);
+        serviceAchat.modifier(1,achat1);
 
     }
 }
