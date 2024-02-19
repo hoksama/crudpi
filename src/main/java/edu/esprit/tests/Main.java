@@ -26,21 +26,22 @@ public class Main {
         String code_promo="test23566";
        Achat achat1 = new Achat(70,69,69,code_promo,420);
 
-       String desc="42440";
+       String desc="TestLundi22";
         Reponse r1 = new Reponse(desc);
         //serviceAchat.ajouter(achat1);
         //serviceAchat.supprimer(4);
         //ajouter reponse
         //serviceReponse.ajouter(r1);
-       // serviceReponse.modifier(2,r1);
+        //serviceReponse.modifier(r1);
         //serviceReponse.supprimer(2);
         //System.out.println(serviceReponse.getOneById(1));
-        //System.out.println(serviceAchat.getAll());
+       // System.out.println(serviceReponse.getAll());
 
-        Reclamation rec = new Reclamation(6969,0,0,"wiiiw wiiiw",3);
-        serviceReclamation.modifier(3,rec);
+        Reclamation rec = new Reclamation(422,0,0,5, "wiiw");
+        serviceReclamation.ajouter(rec);
         System.out.println(serviceReclamation.getAll());
         //serviceReclamation.supprimer(1);
+
 
 
     }

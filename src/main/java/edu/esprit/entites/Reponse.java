@@ -1,25 +1,36 @@
 package edu.esprit.entites;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.Objects;
 
 public class Reponse {
     private int id_reponse;
     private String description;
-    private LocalDate date;
+    private LocalDateTime date;
+    private Reclamation reclamation;
+
+    public edu.esprit.entites.Reclamation getReclamation() {
+        return reclamation;
+    }
+
+    public void setReclamation(edu.esprit.entites.Reclamation reclamation) {
+        this.reclamation = reclamation;
+    }
 
     public Reponse() {
     }
 
-    public Reponse( String description) {
+    public Reponse( String description,Reclamation reclamation) {
 
         this.description = description;
-        this.date = LocalDate.now();
+        this.reclamation=reclamation;
+        this.date = LocalDateTime.now();
     }
 
-    public Reponse(int id_reponse, String description, LocalDate date) {
+    public Reponse(int id_reponse, String description,Reclamation reclamation, LocalDateTime date) {
         this.id_reponse = id_reponse;
         this.description = description;
+        this.reclamation=reclamation;
         this.date = date;
     }
 
@@ -39,12 +50,12 @@ public class Reponse {
         this.description = description;
     }
 
-    public LocalDate getDate() {
+    public LocalDateTime getDate() {
         return date;
     }
 
     public void setDate() {
-        this.date = LocalDate.now();
+        this.date = LocalDateTime.now();
     }
 
     @Override
@@ -52,7 +63,8 @@ public class Reponse {
         return "Reponse{" +
                 "id_reponse=" + id_reponse +
                 ", description='" + description + '\'' +
-                ", date=" + date +
+                ", reclamation= " + reclamation +
+            ", date=" + date +
                 '}';
     }
 

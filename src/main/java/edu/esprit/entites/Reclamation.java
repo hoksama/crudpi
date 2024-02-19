@@ -2,7 +2,7 @@ package edu.esprit.entites;
 
 import edu.esprit.services.IService;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -14,35 +14,36 @@ public class Reclamation {
     private int id_outil;
     private int id_formation;
     private String description;
-    private int reponse;
 
-    private LocalDate date_reclamation;
+    private LocalDateTime date_reclamation;
 
-    public Reclamation(int id_reclamation, int user, int outil, int formation,String description , int reponse,  LocalDate date_reclamation) {
+    public Reclamation() {
+    }
+
+    public Reclamation(int id_reclamation, int user, int outil, int formation, String description , LocalDateTime date_reclamation) {
         this.id_reclamation = id_reclamation;
         this.id_user = user;
         this.id_outil = outil;
         this.id_formation = formation;
         this.description = description;
-        this.reponse=reponse;
         this.date_reclamation = date_reclamation;
     }
-    public Reclamation( int user, int outil, int formation,String description ,int reponse) {
+    public Reclamation( int user, int outil, int formation,String description ) {
 
         this.id_user = user;
         this.id_outil = outil;
         this.id_formation = formation;
         this.description = description;
-        this.reponse = reponse;
-        this.date_reclamation = LocalDate.now();
+
+        this.date_reclamation = LocalDateTime.now();
     }
-    public Reclamation( int id_reclamation , int user, int outil, int formation,String description , int reponse) {
+    public Reclamation( int id_reclamation , int user, int outil, int formation,String description) {
         this.id_reclamation = id_reclamation;
         this.id_user = user;
         this.id_outil = outil;
         this.id_formation = formation;
         this.description = description;
-        this.reponse=reponse;
+
 
     }
 
@@ -86,20 +87,13 @@ public class Reclamation {
         this.description = description;
     }
 
-    public int getReponse() {
-        return reponse;
-    }
 
-    public void setReponse(int reponse) {
-        this.reponse = reponse;
-    }
-
-    public LocalDate getDate_reclamation() {
+    public LocalDateTime getDate_reclamation() {
         return date_reclamation;
     }
 
     public void setDate_reclamation() {
-        this.date_reclamation = LocalDate.now();
+        this.date_reclamation = LocalDateTime.now();
     }
 
     @Override
@@ -110,7 +104,6 @@ public class Reclamation {
                 ", id_outil=" + id_outil +
                 ", id_formation=" + id_formation +
                 ", description='" + description + '\'' +
-                ", reponse=" + reponse +
                 ", date_reclamation=" + date_reclamation +
                 '}';
     }

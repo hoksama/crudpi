@@ -31,7 +31,7 @@ public class ServiceAchat implements IService<Achat>{
 
 
     @Override
-    public void modifier(int id,Achat achat) {
+    public void modifier(Achat achat) {
         String req = "UPDATE `achat` SET id_user=?, id_formation=?, id_outil=?, code_promo=?, total=? WHERE id_achat=?";
 
         try {
@@ -43,17 +43,17 @@ public class ServiceAchat implements IService<Achat>{
             preparedStatement.setInt(3, achat.getOutil());
             preparedStatement.setString(4, achat.getCode_promo());
             preparedStatement.setInt(5, achat.getTotal());
-            preparedStatement.setInt(6, id);
+            preparedStatement.setInt(6, achat.getId_achat());
 
             int rowCount = preparedStatement.executeUpdate();
 
             if (rowCount > 0) {
-                System.out.println("Achat with id " + id + " has been updated successfully.");
+                System.out.println("Achat with id " + achat.getId_achat() + " has been updated successfully.");
             } else {
-                System.out.println("No Achat found with id " + id + ". Nothing updated.");
+                System.out.println("No Achat found with id " + achat.getId_achat() + ". Nothing updated.");
             }
         } catch (SQLException e) {
-            System.out.println("Error updating Achat with id " + id + ": " + e.getMessage());
+            System.out.println("Error updating Achat with id " + achat.getId_achat() + ": " + e.getMessage());
         }
     }
 
