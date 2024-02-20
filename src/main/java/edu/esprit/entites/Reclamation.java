@@ -102,6 +102,7 @@ public class Reclamation {
                 ", id_user=" + user.getId_user() +
                 ", id_outil=" + outil.getId_outil() +
                 ", id_formation=" + formation.getId_formation() +
+                ",reponses= " +
                 ", description='" + description + '\'' +
                 ", date_reclamation=" + date_reclamation +
                 '}';

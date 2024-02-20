@@ -14,7 +14,7 @@ public class ServiceReclamation implements IService<Reclamation> {
     Connection cnx = DataSource.getInstance().getCnx();
     @Override
     public void ajouter(Reclamation reclamation) {
-        String req = "INSERT INTO `reclamation`( `id_user`, `id_outil`, `id_formation`, `description`, `date`) VALUES (?,?,?,?,?,?)";
+        String req = "INSERT INTO `reclamation`( `id_user`, `id_outil`, `id_formation`, `description`, `date`) VALUES (?,?,?,?,?)";
         try {
             DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd-HH-mm-ss");
             String formattedDate = reclamation.getDate_reclamation().format(formatter);

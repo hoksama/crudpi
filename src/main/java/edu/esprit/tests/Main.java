@@ -12,22 +12,19 @@ public class Main {
         ServiceReponse serviceReponse = new ServiceReponse();
         ServiceReclamation serviceReclamation = new ServiceReclamation();
         System.out.println(DataSource.getInstance());
-        Formation formation = new Formation(1);
+        Formation formation = new Formation(10);
         Outil outil = new Outil(1);
         User user = new User(2);
-        Reclamation reclamation = new Reclamation();
-        reclamation.setId_reclamation(1);
+        Reclamation reclamation = new Reclamation(user,outil,formation,"testest");
+
 
         //serviceReponse.ajouter(new Reponse(user,"wiiiiw",reclamation));
 
-        System.out.println(serviceReponse.getOneById(2));
+       // System.out.println(serviceReponse.getOneById(2));
+       //serviceReclamation.ajouter(reclamation);
 
+        System.out.println(serviceReponse.getByReclamationId(1));
 
-
-       //serviceAchat.modifier(achat1(1,80,70,70,code_promo,690));
-      //  Reponse r1 = new Reponse(desc);
-        //serviceAchat.ajouter(achat1);
-        //serviceAchat.supprimer(4);
         //ajouter reponse
         //serviceReponse.ajouter(r1);
         //serviceReponse.modifier(r1);
