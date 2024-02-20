@@ -23,8 +23,8 @@ public class Main {
        // System.out.println(serviceReponse.getOneById(2));
        //serviceReclamation.ajouter(reclamation);
 
-        System.out.println(serviceReponse.getByReclamationId(1));
-
+       // System.out.println(serviceReponse.getByReclamationId(1));
+        System.out.println(serviceReclamation.getAll());
         //ajouter reponse
         //serviceReponse.ajouter(r1);
         //serviceReponse.modifier(r1);
