@@ -1,15 +1,14 @@
 package edu.esprit.services;
 
-import edu.esprit.entites.Reclamation;
-import edu.esprit.entites.Reponse;
+import edu.esprit.entites.*;
 import edu.esprit.utils.DataSource;
 
 import java.sql.*;
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.HashSet;
 import java.util.Set;
+import java.util.concurrent.ForkJoinPool;
 
 public class ServiceReclamation implements IService<Reclamation> {
     Connection cnx = DataSource.getInstance().getCnx();
@@ -20,11 +19,10 @@ public class ServiceReclamation implements IService<Reclamation> {
             DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd-HH-mm-ss");
             String formattedDate = reclamation.getDate_reclamation().format(formatter);
             PreparedStatement ps = cnx.prepareStatement(req);
-            ps.setInt(1,reclamation.getId_user());
-            ps.setInt(2,reclamation.getId_outil());
-            ps.setInt(3,reclamation.getId_formation());
+            ps.setInt(1,reclamation.getUser().getId_user());
+            ps.setInt(2,reclamation.getOutil().getId_outil());
+            ps.setInt(3,reclamation.getFormation().getId_formation());
             ps.setString(4,reclamation.getDescription());
-
             ps.setObject(5, formattedDate);
             ps.executeUpdate();
             System.out.println("reclamation added !");
@@ -41,9 +39,9 @@ public class ServiceReclamation implements IService<Reclamation> {
             // Using PreparedStatement to prevent SQL injection
             PreparedStatement ps = cnx.prepareStatement(req);
 
-            ps.setInt(1,reclamation.getId_user());
-            ps.setInt(2,reclamation.getId_outil());
-            ps.setInt(3,reclamation.getId_formation());
+            ps.setInt(1,reclamation.getUser().getId_user());
+            ps.setInt(2,reclamation.getOutil().getId_outil());
+            ps.setInt(3,reclamation.getFormation().getId_formation());
             ps.setString(4,reclamation.getDescription());
             ps.setInt(5, reclamation.getId_reclamation());
 
@@ -89,13 +87,18 @@ public class ServiceReclamation implements IService<Reclamation> {
            // Set the parameter value
             ResultSet res = ps.executeQuery();
             if (res.next()) {
-                int user = res.getInt("id_user");
-                int outil =res.getInt("id_outil");
-                int formation = res.getInt("id_formation");
+                //int user = res.getInt("id_user");
+               // int outil =res.getInt("id_outil");
+               // int formation = res.getInt("id_formation");
                 String description = res.getString("description");
-
                 java.sql.Timestamp timestamp = res.getTimestamp("date");
                 LocalDateTime date = timestamp.toLocalDateTime();
+                Formation formation = new Formation();
+                formation.setId_formation(res.getInt("id_formation"));
+                User user = new User();
+                user.setId_user(res.getInt("id_user"));
+                Outil outil = new Outil();
+                outil.setId_outil(res.getInt("id_outil"));
                 return new Reclamation(id,user,outil,formation,description,date);
             }
         } catch (SQLException e) {
@@ -114,9 +117,12 @@ public class ServiceReclamation implements IService<Reclamation> {
             ResultSet res = st.executeQuery(req);
             while (res.next()){
                 int id = res.getInt("id_reclamation");
-                int user = res.getInt("id_user");
-                int outil =res.getInt("id_outil");
-                int formation = res.getInt("id_formation");
+                Formation formation = new Formation();
+                formation.setId_formation(res.getInt("id_formation"));
+                User user = new User();
+                user.setId_user(res.getInt("id_user"));
+                Outil outil = new Outil();
+                outil.setId_outil(res.getInt("id_outil"));
                 String description = res.getString("description");
                 java.sql.Timestamp timestamp = res.getTimestamp("date");
                 LocalDateTime date = timestamp.toLocalDateTime();

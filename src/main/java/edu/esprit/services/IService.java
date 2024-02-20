@@ -1,7 +1,5 @@
 package edu.esprit.services;
 
-import edu.esprit.entites.Achat;
-
 import java.util.Set;
 
 public interface IService <T> {

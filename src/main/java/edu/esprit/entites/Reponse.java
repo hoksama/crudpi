@@ -1,13 +1,16 @@
 package edu.esprit.entites;
+import edu.esprit.entites.User;
 
 import java.time.LocalDateTime;
 import java.util.Objects;
 
 public class Reponse {
     private int id_reponse;
+    private User user;
     private String description;
-    private LocalDateTime date;
     private Reclamation reclamation;
+    private LocalDateTime date;
+
 
     public edu.esprit.entites.Reclamation getReclamation() {
         return reclamation;
@@ -20,16 +23,18 @@ public class Reponse {
     public Reponse() {
     }
 
-    public Reponse( String description,Reclamation reclamation) {
+    public Reponse(User user, String description ,Reclamation reclamation) {
 
         this.description = description;
+        this.user=user;
         this.reclamation=reclamation;
         this.date = LocalDateTime.now();
     }
 
-    public Reponse(int id_reponse, String description,Reclamation reclamation, LocalDateTime date) {
+    public Reponse(int id_reponse,User user ,String description ,Reclamation reclamation, LocalDateTime date) {
         this.id_reponse = id_reponse;
         this.description = description;
+        this.user=user;
         this.reclamation=reclamation;
         this.date = date;
     }
@@ -41,6 +46,9 @@ public class Reponse {
     public void setId_reponse(int id_reponse) {
         this.id_reponse = id_reponse;
     }
+
+    public User getUser(){return this.user;}
+    public void setUser(User user){this.user=user;}
 
     public String getDescription() {
         return description;
@@ -62,8 +70,8 @@ public class Reponse {
     public String toString() {
         return "Reponse{" +
                 "id_reponse=" + id_reponse +
-                ", description='" + description + '\'' +
-                ", reclamation= " + reclamation +
+                ", description=" + description + '\'' +
+                ", reclamation= " + reclamation.getId_reclamation() +
             ", date=" + date +
                 '}';
     }
