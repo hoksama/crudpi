@@ -32,7 +32,7 @@ public class Main {
         //System.out.println(serviceReponse.getOneById(1));
        // System.out.println(serviceReponse.getAll());
 
-       // Reclamation rec = new Reclamation(422,0,0,5, "wiiw");
+       // edu.esprit.controllers.Reclamation rec = new edu.esprit.controllers.Reclamation(422,0,0,5, "wiiw");
       //  serviceReclamation.ajouter(rec);
        // System.out.println(serviceReclamation.getAll());
         //serviceReclamation.supprimer(1);

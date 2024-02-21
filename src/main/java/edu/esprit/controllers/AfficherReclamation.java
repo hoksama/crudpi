@@ -59,7 +59,7 @@ public class AfficherReclamation {
 
         // Initialiser le ComboBox avec les types de réclamations une seule fois
       /*  typeTF.getItems().clear(); // Assurez-vous qu'il est vide avant de le remplir
-        typeTF.getItems().addAll("Reclamation sur service", "Reclamation sur security", "Reclamation sur produit","Reclamation sur livreur", "Reclamation sur colis"); // Ajoutez vos types ici
+        typeTF.getItems().addAll("edu.esprit.controllers.Reclamation sur service", "edu.esprit.controllers.Reclamation sur security", "edu.esprit.controllers.Reclamation sur produit","edu.esprit.controllers.Reclamation sur livreur", "edu.esprit.controllers.Reclamation sur colis"); // Ajoutez vos types ici
 
         loadReclamations(); // Charge les réclamations dans le tableView
 */
