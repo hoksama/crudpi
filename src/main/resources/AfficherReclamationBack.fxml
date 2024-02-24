@@ -148,7 +148,7 @@
          <children>
             <ScrollPane prefHeight="418.0" prefWidth="725.0">
                <content>
-                  <GridPane fx:id="reclamationContainer" gridLinesVisible="true" prefHeight="310.0" prefWidth="275.0">
+                  <GridPane fx:id="reclamationContainer" gridLinesVisible="true" prefHeight="266.0" prefWidth="357.0">
                     <columnConstraints>
                       <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                     </columnConstraints>

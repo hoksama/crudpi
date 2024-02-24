@@ -20,10 +20,10 @@ public class MainFX extends Application {
             stage.setScene(scene);
             stage.setTitle("Gestion Reclamation");
             stage.show();
-        }catch (IllegalStateException e) {
+        } catch (IllegalStateException e) {
             System.out.println(e.getMessage());
-
         }
+
         if (DataSource.getInstance().getCnx() != null) {
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle(" base de données !");

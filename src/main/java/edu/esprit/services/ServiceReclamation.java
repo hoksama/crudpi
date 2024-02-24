@@ -92,6 +92,7 @@ public class ServiceReclamation implements IService<Reclamation> {
                 LocalDateTime date = timestamp.toLocalDateTime();
                 Formation formation = new Formation();
                 formation.setId_formation(res.getInt("id_formation"));
+                // retrieve
                 User user = new User();
                 user.setId_user(res.getInt("id_user"));
                 Outil outil = new Outil();

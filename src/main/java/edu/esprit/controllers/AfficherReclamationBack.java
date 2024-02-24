@@ -8,7 +8,6 @@ import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
-import javafx.scene.layout.Region;
 import javafx.scene.layout.VBox;
 
 import java.io.IOException;
@@ -38,21 +37,14 @@ public class AfficherReclamationBack implements Initializable {
                 ReclamationController reclamationController = fxmlLoader.getController();
                 reclamationController.setData(reclamation);
 
+
                 if(column == 3){
                     column = 0;
                     ++row;
                 }
-                reclamationContainer.add(reclamationBox,column++,row);
-
-                reclamationContainer.setMinWidth(Region.USE_COMPUTED_SIZE);
-                reclamationContainer.setPrefWidth(Region.USE_COMPUTED_SIZE);
-                reclamationContainer.setMaxWidth(Region.USE_COMPUTED_SIZE);
-
-
-                reclamationContainer.setMinHeight(Region.USE_COMPUTED_SIZE);
-                reclamationContainer.setPrefHeight(Region.USE_COMPUTED_SIZE);
-                reclamationContainer.setMaxHeight(Region.USE_COMPUTED_SIZE);
-                GridPane.setMargin(reclamationBox , new Insets(10));
+                column++;
+                reclamationContainer.add(reclamationBox,column,row);
+                //GridPane.setMargin(reclamationBox ,new Insets(70, 0, 0, 70));
             }
         }catch (IOException e){
             System.out.println(e.getMessage());

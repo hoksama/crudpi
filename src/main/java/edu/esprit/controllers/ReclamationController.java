@@ -25,10 +25,9 @@ public class ReclamationController {
 
     @FXML
     private Label ReclamationUser;
-    @FXML
-    private AnchorPane anchorPane;
 
-    private String [] colors = {"Red","BDB2FE","FB9AA8"};
+
+    //private String [] colors = {"Red","BDB2FE","FB9AA8"};
 
     public void setData(Reclamation reclamation){
         ReclamationUser.setText(String.valueOf(reclamation.getUser().getId_user()));
