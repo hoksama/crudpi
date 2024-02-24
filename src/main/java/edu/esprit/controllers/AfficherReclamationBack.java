@@ -40,11 +40,22 @@ public class AfficherReclamationBack implements Initializable {
 
                 if(column == 3){
                     column = 0;
-                    ++row;
+                    row++;
                 }
-                column++;
+
                 reclamationContainer.add(reclamationBox,column,row);
-                //GridPane.setMargin(reclamationBox ,new Insets(70, 0, 0, 70));
+                column++;
+                //grid weight
+                reclamationContainer.setMinWidth(260);
+                reclamationContainer.setPrefWidth(260);
+                reclamationContainer.setMaxWidth(260);//
+                //height
+                reclamationContainer.setMinHeight(319);
+                reclamationContainer.setPrefHeight(319);
+                reclamationContainer.setMaxHeight(319);//
+                reclamationContainer.setLayoutY(10);
+
+                GridPane.setMargin(reclamationBox ,new Insets(10));
             }
         }catch (IOException e){
             System.out.println(e.getMessage());
