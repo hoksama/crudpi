@@ -151,6 +151,8 @@
                         </GridPane>
                      </children>
                   </AnchorPane>
+                  <Button fx:id="ajouterReclamationButton" layoutX="523.0" layoutY="87.0" mnemonicParsing="false" text="Ajouter Reclamation" onAction="#openAjouterReclamation"/>
+                  <Button layoutX="425.0" layoutY="87.0" mnemonicParsing="false" text="Update" onAction="#Refresh" />
 
 
                 </children>
@@ -159,6 +161,7 @@
     </StackPane>
 
 </children>
+    
 <effect>
     <DropShadow color="#1b1eeb" />
 </effect>
