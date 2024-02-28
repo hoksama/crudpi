@@ -18,7 +18,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextArea;
 import javafx.stage.Stage;
-
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import java.io.IOException;
 import java.sql.SQLException;
 
@@ -87,6 +88,20 @@ public class AjouterReclamation {
         if (selectedFormation == null || selectedOutil == null || description.isEmpty()) {
             // Display an alert or handle the situation accordingly
             System.out.println("Please fill in all fields.");
+            return;
+        }
+        // Validate the description using regex
+        String descriptionPattern = "^[a-zA-Z0-9\\s]+$";
+        Pattern pattern = Pattern.compile(descriptionPattern);
+        Matcher matcher = pattern.matcher(description);
+
+        if (!matcher.matches()) {
+            // Display an alert or handle the situation accordingly
+            System.out.println("Invalid characters in the description.");
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle(" desription");
+            alert.setContentText("the description only contains numbers and letters");
+            alert.show();
             return;
         }
 
